@@ -21,5 +21,6 @@ module.exports = {
       },
     ],
     "comma-dangle": ["error", "always-multiline"],
+    "vue/multi-word-component-names": [0],
   },
 };
