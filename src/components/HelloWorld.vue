@@ -33,7 +33,7 @@
 
 <script lang="ts">
 import { defineComponent, computed, reactive, toRefs } from "vue";
-import { useStore } from "@/store";
+import { counterStore } from "@/store/count";
 
 export default defineComponent({
   name: "HelloWorld",
@@ -44,18 +44,17 @@ export default defineComponent({
     },
   },
   setup: () => {
-    const store = useStore();
     const data = reactive({
       number: 0,
     });
-    const count = computed(() => store.getters["count/count"]);
+    const count = computed(() => counterStore.count_value);
 
     function plus() {
-      store.dispatch("count/increment");
+      counterStore.increment();
     }
 
     function add() {
-      store.dispatch("count/add", data.number);
+      counterStore.add(data.number);
     }
 
     return { ...toRefs(data), count, plus, add };
