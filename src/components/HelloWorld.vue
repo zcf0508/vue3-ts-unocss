@@ -54,7 +54,7 @@ export default defineComponent({
     }
 
     function add() {
-      counterStore.add(data.number);
+      counterStore.add(Number(data.number));
     }
 
     return { ...toRefs(data), count, plus, add };
