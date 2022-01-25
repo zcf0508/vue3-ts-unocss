@@ -1,11 +1,15 @@
 {
   "name": "vite-project",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "dev": " vue-tsc --noEmit --skipLibCheck && vite",
     "build": "vite build",
     "serve": "vite preview",
+    "format": "eslint --fix",
     "test:unit": "jest"
+  },
+  "gitHooks": {
+    "pre-commit": "yarn format"
   },
   "dependencies": {
     "@heroicons/vue": "^1.0.5",
@@ -42,6 +46,7 @@
     "vite-plugin-windicss": "^1.5.3",
     "vue-jest": "^5.0.0-alpha.10",
     "vue-tsc": "^0.29.7",
-    "windicss": "^3.2.1"
+    "windicss": "^3.2.1",
+    "yorkie": "^2.0.0"
   }
 }
