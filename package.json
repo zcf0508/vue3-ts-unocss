@@ -5,7 +5,7 @@
     "dev": " vue-tsc --noEmit --skipLibCheck && vite",
     "build": "vite build",
     "serve": "vite preview",
-    "format": "eslint --fix",
+    "format": "eslint --fix --ext .ts --ext .vue ./src",
     "test:unit": "jest"
   },
   "gitHooks": {
