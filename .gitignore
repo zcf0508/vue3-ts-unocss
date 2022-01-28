@@ -5,3 +5,4 @@ dist-ssr
 *.local
 yarn.lock
 yarn-error.log
+stats.html
