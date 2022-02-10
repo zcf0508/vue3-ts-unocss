@@ -6,7 +6,8 @@
     "build": "vite build",
     "serve": "vite preview",
     "format": "eslint --fix --ext .ts --ext .vue ./src",
-    "test:unit": "jest"
+    "test:unit": "jest",
+    "test:e2e": "playwright test"
   },
   "gitHooks": {
     "pre-commit": "yarn format"
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.16.8",
+    "@playwright/test": "^1.18.1",
     "@types/jest": "<27",
     "@types/node": "^16.11.10",
     "@typescript-eslint/eslint-plugin": "^4.29.2",
