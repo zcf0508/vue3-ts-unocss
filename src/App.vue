@@ -11,6 +11,10 @@ export default defineComponent({
 </script>
 
 <style>
+:root {
+  --animate-duration: 0.75s !important;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

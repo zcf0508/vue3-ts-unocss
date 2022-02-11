@@ -1,5 +1,7 @@
 <template>
-  <HelloWorld msg="This is About" />
+  <div class="animate__animated animate__fadeInUp">
+    <HelloWorld msg="This is About" />
+  </div>
 </template>
 
 <script lang="ts">
