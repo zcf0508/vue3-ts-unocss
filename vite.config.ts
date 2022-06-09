@@ -53,6 +53,9 @@ export default defineConfig(({ command, mode }) => {
   }
 
   return {
+    define: {
+      __VUE_OPTIONS_API__: false, // 不使用 Options Api 减小压缩体积
+    },
     plugins,
     build: {
       minify: "terser",
