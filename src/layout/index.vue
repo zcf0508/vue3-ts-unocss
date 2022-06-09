@@ -22,16 +22,8 @@
 </template>
 
 <script lang="ts">
-import { HomeIcon } from "@heroicons/vue/outline";
-import { LightBulbIcon } from "@heroicons/vue/outline";
-import { defineComponent } from "vue";
-
 export default defineComponent({
   name: "Layout",
-  components: {
-    HomeIcon,
-    LightBulbIcon,
-  },
 });
 </script>
 

@@ -5,6 +5,8 @@ import vue from "@vitejs/plugin-vue";
 import viteCompression from "vite-plugin-compression"; //gzip
 import WindiCSS from "vite-plugin-windicss";
 import { visualizer } from "rollup-plugin-visualizer";
+import AutoImport from "unplugin-auto-import/vite";
+import Components from "unplugin-vue-components/vite";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -20,6 +22,30 @@ export default defineConfig(({ command, mode }) => {
     }),
     WindiCSS(),
     visualizer(),
+    AutoImport({
+      /* options */
+      include: [
+        /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+        /\.vue$/,
+        /\.vue\?vue/, // .vue
+      ],
+      imports: ["vue", "vue-router", "@vueuse/core"],
+      dirs: ["src/hooks", "src/store", "src/utils", "src/api"],
+      dts: "src/auto-import.d.ts",
+    }),
+    Components({
+      /* options */
+      dirs: ["src/components"],
+      extensions: ["vue"],
+      deep: true,
+      dts: "src/components.d.ts",
+      resolvers: [
+        (componentName) => {
+          // where `componentName` is always CapitalCase
+          if (componentName.endsWith("Icon")) return { name: componentName, from: "@heroicons/vue/outline" };
+        },
+      ],
+    }),
   ];
 
   if (command === "serve") {

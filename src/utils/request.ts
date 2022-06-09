@@ -12,8 +12,6 @@ setupCache(service, {
 // 请求拦截器
 service.interceptors.request.use(
   (config: AxiosRequestConfig) => {
-    
-
     if (config.headers) {
       config.headers["Authorization"] = "JWT "; //获取token，并将其添加至请求头中
     }

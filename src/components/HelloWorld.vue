@@ -32,9 +32,6 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, reactive, toRefs } from "vue";
-import { counterStore } from "@/store/count";
-
 export default defineComponent({
   name: "HelloWorld",
   props: {

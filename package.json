@@ -2,7 +2,7 @@
   "name": "vite-project",
   "version": "0.0.1",
   "scripts": {
-    "dev": " vue-tsc --noEmit --skipLibCheck && vite",
+    "dev": "vite && vue-tsc --noEmit --skipLibCheck",
     "build": "vite build",
     "serve": "vite preview",
     "format": "eslint --fix --ext .ts --ext .vue ./src",
@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@heroicons/vue": "^1.0.5",
+    "@vueuse/core": "^8.6.0",
     "animate.css": "^4.1.1",
     "axios": "^0.26.0",
     "axios-cache-interceptor": "^0.8.9",
@@ -47,6 +48,8 @@
     "ts-jest": "<27",
     "tslib": "^2.3.1",
     "typescript": "^4.5.5",
+    "unplugin-auto-import": "^0.8.7",
+    "unplugin-vue-components": "^0.19.6",
     "vite": "^2.7.13",
     "vite-plugin-compression": "^0.3.6",
     "vite-plugin-windicss": "^1.5.3",
