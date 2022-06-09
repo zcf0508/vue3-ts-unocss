@@ -13,14 +13,14 @@
     "pre-commit": "yarn format"
   },
   "dependencies": {
-    "@heroicons/vue": "^1.0.5",
+    "@heroicons/vue": "^1.0.6",
     "@vueuse/core": "^8.6.0",
     "animate.css": "^4.1.1",
-    "axios": "^0.26.0",
-    "axios-cache-interceptor": "^0.8.9",
-    "hami-vuex": "^0.1.2",
-    "vue": "^3.2.30",
-    "vue-router": "^4.0.12",
+    "axios": "^0.27.2",
+    "axios-cache-interceptor": "^0.10.4",
+    "hami-vuex": "^0.1.4",
+    "vue": "^3.2.37",
+    "vue-router": "^4.0.15",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
