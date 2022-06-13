@@ -7,4 +7,7 @@ export default defineConfig({
     extend: {},
   },
   plugins: [],
+  attributify: {
+    prefix: "w:",
+  },
 });
