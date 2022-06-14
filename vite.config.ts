@@ -7,6 +7,8 @@ import WindiCSS from "vite-plugin-windicss";
 import { visualizer } from "rollup-plugin-visualizer";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
+import UnoCSS from "unocss/vite";
+import UnocssIcons from "@unocss/preset-icons";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -44,6 +46,18 @@ export default defineConfig(({ command, mode }) => {
           // where `componentName` is always CapitalCase
           if (componentName.endsWith("Icon")) return { name: componentName, from: "@heroicons/vue/outline" };
         },
+      ],
+    }),
+    UnoCSS({
+      presets: [
+        UnocssIcons({
+          // 其他选项
+          prefix: "i-",
+          extraProperties: {
+            display: "inline-block",
+          },
+        }),
+        // presetUno() - 取消注释以启用默认的预设
       ],
     }),
   ];

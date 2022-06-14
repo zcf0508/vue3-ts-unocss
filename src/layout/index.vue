@@ -5,18 +5,14 @@
     <!--通过传递 `to` 来指定链接 -->
     <!--`<router-link>` 将呈现一个带有正确 `href` 属性的 `<a>` 标签-->
     <router-link to="/home" class="inline-block mr-8">
-      <div class="inline-block align-middle mr-2">
-        <home-icon class="h-4 w-4 m-0"></home-icon>
-      </div>
+      <div class="i-ri:home-2-line h-4 w-4 mr-2 align-text-bottom"></div>
       <span>Go to Home</span>
     </router-link>
 
     <router-link to="/about">
-      <div class="inline-block align-middle mr-2">
-        <light-bulb-icon class="h-4 w-4 m-0"></light-bulb-icon>
-      </div>
-      <span>Go to About</span></router-link
-    >
+      <div class="i-ri:lightbulb-line h-4 w-4 mr-2 align-text-bottom"></div>
+      <span>Go to About</span>
+    </router-link>
   </p>
   <router-view></router-view>
 </template>

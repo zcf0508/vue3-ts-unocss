@@ -5,5 +5,6 @@ import router from "@/router";
 import "virtual:windi.css";
 import "virtual:windi-devtools";
 import 'animate.css';
+import 'uno.css'
 
 createApp(App).use(hamiVuex).use(router).mount("#app");
