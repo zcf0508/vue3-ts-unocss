@@ -7,6 +7,7 @@ const service = axios.create({
 
 setupCache(service, {
   ttl: 1000, // 默认缓存时间 1s
+  interpretHeader: false, // 默认不解析 header
 });
 
 // 请求拦截器
