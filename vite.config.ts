@@ -41,12 +41,7 @@ export default defineConfig(({ command, mode }) => {
       extensions: ["vue"],
       deep: true,
       dts: "src/components.d.ts",
-      resolvers: [
-        (componentName) => {
-          // where `componentName` is always CapitalCase
-          if (componentName.endsWith("Icon")) return { name: componentName, from: "@heroicons/vue/outline" };
-        },
-      ],
+      resolvers: [],
     }),
     UnoCSS({
       presets: [
@@ -85,6 +80,11 @@ export default defineConfig(({ command, mode }) => {
       alias: {
         "@": path.resolve(__dirname, "./src"),
       },
+    },
+    test: {
+      include: ["tests/unit/*.spec.ts"],
+      globals: true,
+      environment: "happy-dom",
     },
   };
 });
