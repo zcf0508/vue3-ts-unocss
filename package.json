@@ -1,5 +1,5 @@
 {
-  "name": "vite-project",
+  "name": "vue3-ts-unocss",
   "version": "0.0.1",
   "scripts": {
     "dev": "vite && vue-tsc --noEmit --skipLibCheck",
@@ -7,10 +7,10 @@
     "serve": "vite preview",
     "format": "eslint --fix --ext .ts --ext .vue ./src",
     "test:unit": "vitest --ui",
-    "test:e2e": "playwright test"
+    "test:e2e": "vite && playwright test"
   },
   "gitHooks": {
-    "pre-commit": "yarn format"
+    "pre-commit": "pnpm format"
   },
   "dependencies": {
     "@vueuse/core": "^8.6.0",
@@ -53,7 +53,6 @@
     "vite-plugin-windicss": "^1.8.4",
     "vitest": "^0.16.0",
     "vue-tsc": "^0.31.2",
-    "windicss": "^3.5.4",
     "yorkie": "^2.0.0"
   }
 }

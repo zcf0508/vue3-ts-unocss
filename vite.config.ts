@@ -43,18 +43,7 @@ export default defineConfig(({ command, mode }) => {
       dts: "src/components.d.ts",
       resolvers: [],
     }),
-    UnoCSS({
-      presets: [
-        UnocssIcons({
-          // 其他选项
-          prefix: "i-",
-          extraProperties: {
-            display: "inline-block",
-          },
-        }),
-        // presetUno() - 取消注释以启用默认的预设
-      ],
-    }),
+    UnoCSS(),
   ];
 
   if (command === "serve") {

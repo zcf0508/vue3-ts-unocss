@@ -22,15 +22,8 @@
 
   <button type="button" @click="plus">count is: {{ count }}</button>
   <p class="my-2">
-    <input
-      w:p="l-2"
-      w:border="default gray-100"
-      w:appearance="none"
-      w:outline="focus:none"
-      type="number"
-      v-model="number"
-    />
-    <button w:m="l-2" w:p="x-2" w:bg="green-500" w:text="white" w:rounded="default" @click="add">ADD</button>
+    <input w:p="l-2" w:border="~ gray-100" w:appearance="none" w:outline="focus:none" type="number" v-model="number" />
+    <button w:m="l-2" w:p="x-2" w:bg="green-500" w:text="white" w:rounded="~" @click="add">ADD</button>
   </p>
   <p>
     Edit
