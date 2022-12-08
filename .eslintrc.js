@@ -3,13 +3,13 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ["plugin:vue/vue3-essential", "plugin:security/recommended"],
   parserOptions: {
     ecmaVersion: 12,
     parser: "@typescript-eslint/parser",
     sourceType: "module",
   },
-  plugins: ["vue", "@typescript-eslint"],
+  plugins: ["vue", "@typescript-eslint", "vuejs-accessibility"],
+  extends: ["plugin:vue/vue3-essential", "plugin:security/recommended", "plugin:vuejs-accessibility/recommended"],
   rules: {
     indent: ["error", 2, { SwitchCase: 1 }],
     "max-len": [

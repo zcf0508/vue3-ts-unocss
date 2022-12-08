@@ -22,7 +22,14 @@
 
   <button type="button" @click="plus">count is: {{ count }}</button>
   <p class="my-2">
-    <input w:p="l-2" w:border="~ gray-100" w:appearance="none" w:outline="focus:none" type="number" v-model="number" />
+    <label for="number_input">
+      <input 
+        id="number_input" 
+        w:p="l-2" w:border="~ gray-100" w:appearance="none" w:outline="focus:none" 
+        type="number" 
+        v-model="number"
+      />
+    </label>
     <button w:m="l-2" w:p="x-2" w:bg="green-500" w:text="white" w:rounded="~" @click="add">ADD</button>
   </p>
   <p>
