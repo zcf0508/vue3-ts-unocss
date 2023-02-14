@@ -50,6 +50,7 @@
     "unplugin-vue-components": "^0.22.12",
     "vite": "^4.0.4",
     "vite-plugin-compression": "^0.3.6",
+    "vite-plugin-inspect": "^0.7.15",
     "vitest": "^0.16.0",
     "vue-tsc": "^1.0.24",
     "yorkie": "^2.0.0"

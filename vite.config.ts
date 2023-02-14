@@ -7,6 +7,7 @@ import { visualizer } from "rollup-plugin-visualizer";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import UnoCSS from "unocss/vite";
+import Inspect from "vite-plugin-inspect"
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -17,10 +18,6 @@ export default defineConfig(({ command, mode }) => {
         targets: ["ie >= 11"],
         additionalLegacyPolyfills: ["regenerator-runtime/runtime"],
       }), */
-    viteCompression({
-      threshold: 102400, //超过10k进行压缩
-    }),
-    visualizer(),
     AutoImport({
       /* options */
       include: [
@@ -45,6 +42,18 @@ export default defineConfig(({ command, mode }) => {
 
   if (command === "serve") {
     // 开发环境下
+    plugins = [
+      ...plugins,
+      visualizer(),
+      Inspect(),
+    ]
+  } else {
+    plugins = [
+      ...plugins,
+      viteCompression({
+        threshold: 102400, //超过10k进行压缩
+      }),
+    ]
   }
 
   return {

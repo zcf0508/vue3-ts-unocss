@@ -9,7 +9,11 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["vue", "@typescript-eslint", "vuejs-accessibility"],
-  extends: ["plugin:vue/vue3-essential", "plugin:security/recommended", "plugin:vuejs-accessibility/recommended"],
+  extends: [
+    "plugin:vue/vue3-essential", 
+    "plugin:security/recommended", 
+    "plugin:vuejs-accessibility/recommended", 
+  ],
   rules: {
     indent: ["error", 2, { SwitchCase: 1 }],
     "max-len": [
