@@ -1,9 +1,9 @@
-import axios, { AxiosStatic, AxiosRequestConfig, AxiosResponse } from "axios";
-import { setupCache, type AxiosCacheInstance } from "axios-cache-interceptor";
+import axios, { AxiosStatic } from "axios";
+import { CacheAxiosResponse, setupCache, type AxiosCacheInstance } from "axios-cache-interceptor";
 
 const service = axios.create({
   baseURL: "",
-});
+}) as AxiosCacheInstance;
 
 setupCache(service, {
   ttl: 1000, // 默认缓存时间 1s
@@ -12,7 +12,7 @@ setupCache(service, {
 
 // 请求拦截器
 service.interceptors.request.use(
-  (config: AxiosRequestConfig) => {
+  (config) => {
     if (config.headers) {
       config.headers["Authorization"] = "JWT "; //获取token，并将其添加至请求头中
     }
@@ -26,20 +26,19 @@ service.interceptors.request.use(
 
 // 响应拦截器
 service.interceptors.response.use(
-  (response: AxiosResponse<{ code: number; msg: string; data: any }, any>) => {
+  (response: CacheAxiosResponse<{code: number,data: any}, any>) => {
     const status = response.status;
-    const data = response.data;
-    let msg = "";
+    const res = response.data;
+
     if (status < 200 || status >= 300) {
       // 处理http错误，抛到业务代码
-      response.data.msg = msg;
-      return Promise.reject(data);
+      return Promise.reject(res);
     }
-    if (data.code > 0) {
+    if (res.code > 0) {
       // 50008: Illegal token; 50012: Other clients logged in; 50014: Token expired;
-      return Promise.reject(data);
+      return Promise.reject(res);
     } else {
-      return data;
+      return res.data;
     }
   },
   (error) => {
