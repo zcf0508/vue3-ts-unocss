@@ -1,19 +1,26 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
     es2021: true,
   },
-  parserOptions: {
-    ecmaVersion: 12,
-    parser: "@typescript-eslint/parser",
-    sourceType: "module",
-  },
-  plugins: ["vue", "@typescript-eslint", "vuejs-accessibility"],
   extends: [
     "plugin:vue/vue3-recommended", 
     "plugin:security/recommended", 
     "plugin:vuejs-accessibility/recommended", 
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
   ],
+  plugins: ["vue", "@typescript-eslint", "vuejs-accessibility"],
+  parser: "vue-eslint-parser",
+  parserOptions: {
+    parser: "@typescript-eslint/parser",
+    ecmaVersion: 12,
+    sourceType: "module",
+    project: ["./tsconfig.json"],
+    tsconfigRootDir: __dirname,
+    extraFileExtensions: [".vue"],
+  },
   rules: {
     indent: ["error", 2, { SwitchCase: 1 }],
     "max-len": [
