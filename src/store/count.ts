@@ -10,18 +10,22 @@ export const counterStore = hamiVuex.store({
   },
 
   async increment() {
-    this.$patch({
-      count: this.count + 1,
-    });
+    return Promise.resolve().then(() => {
+      this.$patch({
+        count: this.count + 1,
+      });
+    })
   },
 
   async add(payload: number) {
-    this.$patch({
-      count: this.count + payload,
-    });
+    return Promise.resolve().then(() => {
+      this.$patch({
+        count: this.count + payload,
+      });
+    })
   },
 
-  get double() {
+  get double(): number {
     return this.count * 2;
   },
 });

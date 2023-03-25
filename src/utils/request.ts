@@ -1,13 +1,7 @@
-import axios, { AxiosStatic } from "axios";
-import { CacheAxiosResponse, setupCache, type AxiosCacheInstance } from "axios-cache-interceptor";
+import axios, { AxiosResponse } from "axios";
 
 const service = axios.create({
   baseURL: "",
-}) as AxiosCacheInstance;
-
-setupCache(service, {
-  ttl: 1000, // 默认缓存时间 1s
-  interpretHeader: false, // 默认不解析 header
 });
 
 // 请求拦截器
@@ -26,7 +20,7 @@ service.interceptors.request.use(
 
 // 响应拦截器
 service.interceptors.response.use(
-  (response: CacheAxiosResponse<{code: number,data: any}, any>) => {
+  (response: AxiosResponse<{code: number,data: any}, any>) => {
     const status = response.status;
     const res = response.data;
 
@@ -38,6 +32,7 @@ service.interceptors.response.use(
       // 50008: Illegal token; 50012: Other clients logged in; 50014: Token expired;
       return Promise.reject(res);
     } else {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       return res.data;
     }
   },
@@ -46,4 +41,4 @@ service.interceptors.response.use(
   },
 );
 
-export default service as AxiosCacheInstance & AxiosStatic;
+export default service;
