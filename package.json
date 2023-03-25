@@ -43,6 +43,7 @@
     "rollup-plugin-visualizer": "^5.9.0",
     "terser": "^5.16.6",
     "tslib": "^2.5.0",
+    "type-fest": "^3.7.0",
     "typescript": "^5.0.2",
     "unocss": "^0.50.6",
     "unplugin-auto-import": "^0.15.1",
