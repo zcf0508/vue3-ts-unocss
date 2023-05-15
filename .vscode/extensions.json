@@ -1,6 +1,9 @@
 {
     "recommendations": [
         "vue.volar",
-        "voorjaar.windicss-intellisense"
+        "voorjaar.windicss-intellisense",
+        "voorjaar.windicss-intellisense",
+        "antfu.unocss",
+        "yoavbls.pretty-ts-errors",
     ]
 }
