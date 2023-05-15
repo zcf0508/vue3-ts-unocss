@@ -1,16 +1,19 @@
 {
   "name": "vue3-ts-unocss",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
-    "dev": "vue-tsc --noEmit --skipLibCheck && vite",
+    "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
+    "lint": "eslint --ext .ts --ext .vue ./src ./tests",
     "format": "eslint --fix --ext .ts --ext .vue ./src",
     "test:unit": "vitest --ui",
-    "test:e2e": "vite && playwright test"
+    "test:e2e": "vite && playwright test",
+    "tsc": "tsc --noEmit --skipLibCheck | vue-tsc --noEmit --skipLibCheck",
+    "release": "bumpp"
   },
   "gitHooks": {
-    "pre-commit": "pnpm format"
+    "pre-push": "npm run lint && npm run tsc && npm run test:unit run"
   },
   "dependencies": {
     "@vueuse/core": "^9.13.0",
@@ -34,6 +37,7 @@
     "@vue/compiler-dom": "^3.2.47",
     "@vue/compiler-sfc": "^3.2.47",
     "@vue/test-utils": "^2.3.2",
+    "bumpp": "^9.1.0",
     "eslint": "^8.36.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-security": "^1.7.1",
