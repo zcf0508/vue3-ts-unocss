@@ -1,13 +1,14 @@
-import * as path from "path";
-import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
+import * as path from 'path';
+import { PluginOption, defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
 // import legacy from "@vitejs/plugin-legacy";
-import viteCompression from "vite-plugin-compression"; //gzip
-import { visualizer } from "rollup-plugin-visualizer";
-import AutoImport from "unplugin-auto-import/vite";
-import Components from "unplugin-vue-components/vite";
-import UnoCSS from "unocss/vite";
-import Inspect from "vite-plugin-inspect"
+import viteCompression from 'vite-plugin-compression'; //gzip
+import { visualizer } from 'rollup-plugin-visualizer';
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
+import UnoCSS from 'unocss/vite';
+import Inspect from 'vite-plugin-inspect'
+import { ViteCodeInspectorPlugin } from 'vite-code-inspector-plugin';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -25,27 +26,30 @@ export default defineConfig(({ command, mode }) => {
         /\.vue$/,
         /\.vue\?vue/, // .vue
       ],
-      imports: ["vue", "vue-router", "@vueuse/core"],
-      dirs: ["src/hooks", "src/store", "src/utils", "src/api"],
-      dts: "src/auto-import.d.ts",
+      imports: ['vue', 'vue-router', '@vueuse/core'],
+      dirs: ['src/hooks', 'src/store', 'src/utils', 'src/api'],
+      dts: 'src/auto-import.d.ts',
     }),
     Components({
       /* options */
-      dirs: ["src/components"],
-      extensions: ["vue"],
+      dirs: ['src/components'],
+      extensions: ['vue'],
       deep: true,
-      dts: "src/components.d.ts",
+      dts: 'src/components.d.ts',
       resolvers: [],
     }),
     UnoCSS(),
-  ];
+  ] as PluginOption[];
 
-  if (command === "serve") {
+  if (command === 'serve') {
     // 开发环境下
     plugins = [
       ...plugins,
       visualizer(),
       Inspect(),
+      ViteCodeInspectorPlugin({
+        // showSwitch: true,
+      }),
     ]
   } else {
     plugins = [
@@ -62,7 +66,7 @@ export default defineConfig(({ command, mode }) => {
     },
     plugins,
     build: {
-      minify: "terser",
+      minify: 'terser',
       terserOptions: {
         compress: {
           //生产环境时移除console
@@ -73,13 +77,13 @@ export default defineConfig(({ command, mode }) => {
     },
     resolve: {
       alias: {
-        "@": path.resolve(__dirname, "./src"),
+        '@': path.resolve(__dirname, './src'),
       },
     },
     test: {
-      include: ["tests/unit/*.spec.ts"],
+      include: ['tests/unit/*.spec.ts'],
       globals: true,
-      environment: "happy-dom",
+      environment: 'happy-dom',
     },
   };
 });

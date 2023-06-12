@@ -1,0 +1,21 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "types": [
+      "vitest/globals"
+    ]
+  },
+  "include": [
+    "src",
+    "tests/unit",
+    
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+}

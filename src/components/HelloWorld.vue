@@ -54,7 +54,7 @@
 
 <script lang="ts">
 export default defineComponent({
-  name: "HelloWorld",
+  name: 'HelloWorld',
   props: {
     msg: {
       type: String,

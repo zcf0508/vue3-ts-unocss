@@ -1,8 +1,8 @@
-import { hamiVuex } from "@/store";
+import { hamiVuex } from '@/store';
 
 export const counterStore = hamiVuex.store({
   // 设置一个唯一名称，方便调试程序和显示错误信息
-  $name: "counter",
+  $name: 'counter',
 
   // 定义状态
   $state() {

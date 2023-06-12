@@ -1,17 +1,17 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory } from 'vue-router';
 
 export const routes = [
   {
-    path: "/",
-    component: () => import("@/layout/index.vue"),
+    path: '/',
+    component: () => import('@/layout/index.vue'),
     children: [
       {
-        path: "/home",
-        component: () => import("@/views/Home.vue"),
+        path: '/home',
+        component: () => import('@/views/Home.vue'),
       },
       {
-        path: "/about",
-        component: () => import("@/views/About.vue"),
+        path: '/about',
+        component: () => import('@/views/About.vue'),
       },
     ],
   },

@@ -6,6 +6,6 @@
 
 <script lang="ts">
 export default defineComponent({
-  name: "About",
+  name: 'About',
 });
 </script>

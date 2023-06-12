@@ -4,8 +4,8 @@ type TestReturnType = {
 
 export function testApi() {
   return request<unknown, TestReturnType>({
-    url:"test/url",
-    method:"get",
+    url:'test/url',
+    method:'get',
   })
 }
 

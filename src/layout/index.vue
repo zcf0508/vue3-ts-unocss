@@ -19,7 +19,7 @@
 
 <script lang="ts">
 export default defineComponent({
-  name: "Layout",
+  name: 'Layout',
 });
 </script>
 

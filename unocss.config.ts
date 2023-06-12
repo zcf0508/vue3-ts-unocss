@@ -1,17 +1,17 @@
-import { defineConfig, presetUno, presetIcons, presetAttributify } from "unocss";
+import { defineConfig, presetUno, presetIcons, presetAttributify } from 'unocss';
 
 export default defineConfig({
   presets: [
     presetUno(),
     presetIcons({
       // 其他选项
-      prefix: "i-",
+      prefix: 'i-',
       extraProperties: {
-        display: "inline-block",
+        display: 'inline-block',
       },
     }),
     presetAttributify({
-      prefix: "w:",
+      prefix: 'w:',
       prefixedOnly: false,
     }),
   ],

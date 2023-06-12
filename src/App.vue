@@ -4,7 +4,7 @@
 
 <script lang="ts">
 export default defineComponent({
-  name: "App",
+  name: 'App',
 });
 </script>
 

@@ -1,14 +1,14 @@
-import axios, { AxiosResponse } from "axios";
+import axios, { AxiosResponse } from 'axios';
 
 const service = axios.create({
-  baseURL: "",
+  baseURL: '',
 });
 
 // 请求拦截器
 service.interceptors.request.use(
   (config) => {
     if (config.headers) {
-      config.headers["Authorization"] = "JWT "; //获取token，并将其添加至请求头中
+      config.headers['Authorization'] = 'JWT '; //获取token，并将其添加至请求头中
     }
 
     return config;
@@ -20,7 +20,7 @@ service.interceptors.request.use(
 
 // 响应拦截器
 service.interceptors.response.use(
-  (response: AxiosResponse<{code: number,data: any}, any>) => {
+  (response: AxiosResponse<{code: number,data: unknown}, unknown>) => {
     const status = response.status;
     const res = response.data;
 

@@ -1,0 +1,18 @@
+{
+  "extends": "@tsconfig/node18/tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "module": "ESNext",
+    "types": ["node"]
+  },
+  "include": [
+    "tests/e2e",
+    "vite.config.ts",
+    "playwright.config.ts",
+    "unocss.config.ts",
+    ".eslintrc.js",
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
