@@ -14,7 +14,7 @@ export const counterStore = hamiVuex.store({
       this.$patch({
         count: this.count + 1,
       });
-    })
+    });
   },
 
   async add(payload: number) {
@@ -22,7 +22,7 @@ export const counterStore = hamiVuex.store({
       this.$patch({
         count: this.count + payload,
       });
-    })
+    });
   },
 
   get double(): number {

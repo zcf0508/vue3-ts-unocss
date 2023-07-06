@@ -34,6 +34,7 @@ module.exports = {
     extraFileExtensions: ['.vue'],
   },
   rules: {
+    semi: ['error', 'always'],
     indent: ['error', 2, { SwitchCase: 1 }],
     'max-len': [
       'error',
