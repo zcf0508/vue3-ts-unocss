@@ -33,7 +33,7 @@
         w:appearance="none" 
         w:outline="focus:none" 
         type="number"
-      />
+      >
     </label>
     <button
       w:m="l-2"

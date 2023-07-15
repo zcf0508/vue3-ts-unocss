@@ -6,5 +6,6 @@
         "source.fixAll.eslint": true
     },
     "iconify.cdnEntry": "https://github.com/iconify/icon-sets/tree/master/json",
-    "references.preferredLocation": "peek"
+    "references.preferredLocation": "peek",
+    "typescript.tsdk": "node_modules\\typescript\\lib"
 }

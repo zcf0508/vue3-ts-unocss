@@ -48,7 +48,7 @@ export default defineConfig(({ command, mode }) => {
       visualizer(),
       Inspect(),
       ViteCodeInspectorPlugin({
-        // showSwitch: true,
+        showSwitch: true,
       }),
     ]
   } else {

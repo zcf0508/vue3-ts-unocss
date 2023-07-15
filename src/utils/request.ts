@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
+import axios, { type AxiosResponse } from 'axios';
 
 const service = axios.create({
   baseURL: '',
@@ -20,7 +20,7 @@ service.interceptors.request.use(
 
 // 响应拦截器
 service.interceptors.response.use(
-  (response: AxiosResponse<{code: number,data: unknown}, unknown>) => {
+  (response: AxiosResponse<{code: number, data: any}, unknown>) => {
     const status = response.status;
     const res = response.data;
 

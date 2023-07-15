@@ -1,38 +1,83 @@
 module.exports = {
-  root: true,
-  env: {
-    browser: true,
-    es2021: true,
+  parserOptions: {
+    ecmaVersion: 2022,
+    ecmaFeatures: {
+      jsx: true,
+    },
+    sourceType: 'module',
   },
-  extends: [
-    'plugin:vue/vue3-recommended', 
-    'plugin:security/recommended', 
-    'plugin:vuejs-accessibility/recommended', 
-    'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+  env: {
+    es2021: true,
+    node: true,
+    es6: true,
+    browser: true,
+  },
+  globals: {
+    document: 'readonly',
+    navigator: 'readonly',
+    window: 'readonly',
+  },
+  overrides: [
+    {
+      files: ['*.vue'],
+      parser: 'vue-eslint-parser',
+      parserOptions: {
+        parser: '@typescript-eslint/parser',
+      },
+      extends: [
+        'plugin:vue/vue3-recommended',
+        'plugin:vuejs-accessibility/recommended', 
+      ],
+      rules: {
+        'vue/multi-word-component-names': [0],
+        'vue/max-attributes-per-line': ['error', {
+          'singleline': {
+            'max': 3,
+          },      
+          'multiline': {
+            'max': 1,
+          },
+        }],
+        'vue/html-self-closing': [0, {
+          'html': {
+            'void': 'never',
+            'normal': 'always',
+            'component': 'always',
+          },
+          'svg': 'always',
+          'math': 'always',
+        }],
+        'vue/html-indent': ['error', 2, {
+          'attribute': 1,
+          'baseIndent': 1,
+          'closeBracket': 0,
+          'alignAttributesVertically': true,
+          'ignores': [],
+        }],
+      },
+    },
+    {
+      parserOptions: {
+        tsconfigRootDir: process.cwd(),
+        project: ['tsconfig.json', 'tsconfig.node.json', 'tsconfig.app.json'],
+      },
+      parser: '@typescript-eslint/parser',
+      excludedFiles: ['**/*.md/*.*'],
+      files: ['*.ts', '*.tsx', '*.mts', '*.cts'],
+      extends: [
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+      ],
+    },
   ],
   plugins: [
     'vue', 
     '@typescript-eslint', 
     'vuejs-accessibility',
   ],
-  parser: 'vue-eslint-parser',
-  overrides: [
-    {
-      'files': ['*.ts', '*.tsx'],
-      'parser': '@typescript-eslint/parser',
-    },
-    {
-      'files': ['*.vue'],
-      'parser': 'vue-eslint-parser',
-    },
+  extends: [
+    'plugin:security/recommended', 
   ],
-  parserOptions: {
-    parser: '@typescript-eslint/parser',
-    project: ['tsconfig.json', 'tsconfig.node.json', 'tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-    extraFileExtensions: ['.vue'],
-  },
   rules: {
     semi: ['error', 'always'],
     indent: ['error', 2, { SwitchCase: 1 }],
@@ -45,31 +90,35 @@ module.exports = {
       },
     ],
     'comma-dangle': ['error', 'always-multiline'],
-    'vue/multi-word-component-names': [0],
     quotes: ['error', 'single'],
-    'vue/max-attributes-per-line': ['error', {
-      'singleline': {
-        'max': 3,
-      },      
-      'multiline': {
-        'max': 1,
-      },
-    }],
-    'vue/html-self-closing': [0, {
-      'html': {
-        'void': 'never',
-        'normal': 'always',
-        'component': 'always',
-      },
-      'svg': 'always',
-      'math': 'always',
-    }],
-    'vue/html-indent': ['error', 2, {
-      'attribute': 1,
-      'baseIndent': 1,
-      'closeBracket': 0,
-      'alignAttributesVertically': true,
-      'ignores': [],
-    }],
   },
+  'ignorePatterns': [
+    '*.min.*',
+    '*.d.ts',
+    'CHANGELOG.md',
+    'dist',
+    'LICENSE*',
+    'output',
+    'out',
+    'coverage',
+    'public',
+    'temp',
+    'package-lock.json',
+    'pnpm-lock.yaml',
+    'yarn.lock',
+    '__snapshots__',
+    '*.css',
+    '*.png',
+    '*.ico',
+    '*.toml',
+    '*.patch',
+    '*.txt',
+    '*.crt',
+    '*.key',
+    'Dockerfile',
+    '!.github',
+    '!.vitepress',
+    '!.vscode',
+    '.vitepress/cache',
+  ],
 };
