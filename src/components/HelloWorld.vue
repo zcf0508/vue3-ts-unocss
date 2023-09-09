@@ -61,7 +61,7 @@ export default defineComponent({
       required: true,
     },
   },
-  setup: () => {
+  setup() {
     const data = reactive({
       number: 0,
     });

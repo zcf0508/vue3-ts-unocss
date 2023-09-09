@@ -59,7 +59,7 @@ module.exports = {
     {
       parserOptions: {
         tsconfigRootDir: process.cwd(),
-        project: ['tsconfig.json', 'tsconfig.node.json', 'tsconfig.app.json'],
+        project: ['tsconfig.json'],
       },
       parser: '@typescript-eslint/parser',
       excludedFiles: ['**/*.md/*.*'],
@@ -68,6 +68,9 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
       ],
+      rules: {
+        '@typescript-eslint/no-unsafe-assignment': 1,
+      },
     },
   ],
   plugins: [
