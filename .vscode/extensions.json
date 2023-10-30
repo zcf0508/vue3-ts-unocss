@@ -3,6 +3,7 @@
         "vue.volar",
         "vue.vscode-typescript-vue-plugin",
         "antfu.unocss",
+        "antfu.goto-alias",
         "bradlc.vscode-tailwindcss",
         "yoavbls.pretty-ts-errors",
         "zcf0508.vue-hook-optimizer-ext",
