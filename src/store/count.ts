@@ -1,31 +1,24 @@
-import { hamiVuex } from '@/store';
+import { defineStore } from 'pinia';
 
-export const counterStore = hamiVuex.store({
-  // 设置一个唯一名称，方便调试程序和显示错误信息
-  $name: 'counter',
-
+export const useCounterStore = defineStore('counter', {
   // 定义状态
-  $state() {
+  state() {
     return { count: 0 };
   },
 
-  async increment() {
-    return Promise.resolve().then(() => {
-      this.$patch({
-        count: this.count + 1,
-      });
-    });
+  getters:{
+    double(state) {
+      return state.count * 2;
+    },
   },
-
-  async add(payload: number) {
-    return Promise.resolve().then(() => {
-      this.$patch({
-        count: this.count + payload,
+  actions: {
+    async increment() {
+      return Promise.resolve().then(() => {
+        this.count += 1;
       });
-    });
-  },
-
-  get double(): number {
-    return this.count * 2;
+    },
+    add(payload: number) {
+      this.count = this.count + payload;
+    },
   },
 });

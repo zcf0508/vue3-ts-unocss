@@ -20,10 +20,9 @@
     "@vueuse/core": "^10.6.1",
     "animate.css": "^4.1.1",
     "axios": "^1.6.1",
-    "hami-vuex": "^0.1.4",
+    "pinia": "^2.1.7",
     "vue": "^3.3.8",
-    "vue-router": "^4.2.5",
-    "vuex": "^4.1.0"
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@iconify/json": "^2.2.142",

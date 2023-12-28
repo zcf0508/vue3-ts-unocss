@@ -14,18 +14,15 @@ dependencies:
   axios:
     specifier: ^1.6.1
     version: 1.6.1
-  hami-vuex:
-    specifier: ^0.1.4
-    version: 0.1.4(vue@3.3.8)(vuex@4.1.0)
+  pinia:
+    specifier: ^2.1.7
+    version: 2.1.7(typescript@5.2.2)(vue@3.3.8)
   vue:
     specifier: ^3.3.8
     version: 3.3.8(typescript@5.2.2)
   vue-router:
     specifier: ^4.2.5
     version: 4.2.5(vue@3.3.8)
-  vuex:
-    specifier: ^4.1.0
-    version: 4.1.0(vue@3.3.8)
 
 devDependencies:
   '@iconify/json':
@@ -105,7 +102,7 @@ devDependencies:
     version: 5.2.2
   unocss:
     specifier: ^0.57.4
-    version: 0.57.4(postcss@8.4.29)(vite@4.5.0)
+    version: 0.57.4(postcss@8.4.31)(vite@4.5.0)
   unplugin-auto-import:
     specifier: ^0.16.7
     version: 0.16.7(@vueuse/core@10.6.1)
@@ -1980,7 +1977,7 @@ packages:
       sirv: 2.0.3
     dev: true
 
-  /@unocss/postcss@0.57.4(postcss@8.4.29):
+  /@unocss/postcss@0.57.4(postcss@8.4.31):
     resolution: {integrity: sha512-ggq8JS4rvgvW2QXjLGwg+m8e4YcmvOtbUS6C7UCrP8pmUqBCpbnTmLi6inpBbBuCN5WokecNZS5f3C4EwNMOMA==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -1992,7 +1989,7 @@ packages:
       css-tree: 2.3.1
       fast-glob: 3.3.2
       magic-string: 0.30.5
-      postcss: 8.4.29
+      postcss: 8.4.31
     dev: true
 
   /@unocss/preset-attributify@0.57.4:
@@ -3784,16 +3781,6 @@ packages:
       duplexer: 0.1.2
     dev: true
 
-  /hami-vuex@0.1.4(vue@3.3.8)(vuex@4.1.0):
-    resolution: {integrity: sha512-IOsS+s79kZzDonuIVvzrvqIx2UZIU1U1CegjZPV+tKkRyU4DemEvmSZi+JOLApyqpftC6AKDMEnPF4m+xrj9xg==}
-    peerDependencies:
-      vue: '>=2.0.0'
-      vuex: '>=3.0.0'
-    dependencies:
-      vue: 3.3.8(typescript@5.2.2)
-      vuex: 4.1.0(vue@3.3.8)
-    dev: false
-
   /happy-dom@12.10.3:
     resolution: {integrity: sha512-JzUXOh0wdNGY54oKng5hliuBkq/+aT1V3YpTM+lrN/GoLQTANZsMaIvmHiHe612rauHvPJnDZkZ+5GZR++1Abg==}
     dependencies:
@@ -4708,6 +4695,24 @@ packages:
     engines: {node: '>=8.6'}
     dev: true
 
+  /pinia@2.1.7(typescript@5.2.2)(vue@3.3.8):
+    resolution: {integrity: sha512-+C2AHFtcFqjPih0zpYuvof37SFxMQ7OEG2zV9jRI12i9BOy3YQVAHwdKtyyc8pDcDyIc33WCIsZaCFWU7WWxGQ==}
+    peerDependencies:
+      '@vue/composition-api': ^1.4.0
+      typescript: '>=4.4.4'
+      vue: ^2.6.14 || ^3.3.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      '@vue/devtools-api': 6.5.0
+      typescript: 5.2.2
+      vue: 3.3.8(typescript@5.2.2)
+      vue-demi: 0.14.6(vue@3.3.8)
+    dev: false
+
   /pkg-types@1.0.3:
     resolution: {integrity: sha512-nN7pYi0AQqJnoLPC9eHFQ8AcyaixBUOwvqc5TDnIKCMEE6I0y8P7OKA7fPexsXGCGxQDl/cmrLAp26LhcwxZ4A==}
     dependencies:
@@ -5429,7 +5434,7 @@ packages:
     engines: {node: '>= 10.0.0'}
     dev: true
 
-  /unocss@0.57.4(postcss@8.4.29)(vite@4.5.0):
+  /unocss@0.57.4(postcss@8.4.31)(vite@4.5.0):
     resolution: {integrity: sha512-rf5eiCVb8957rqzCyRxLzljeYguVMS70X322/Z1sYhosKhh8SBBMsC/TrZEf5o8LTn/MbFN9fVizEtbUKaFjUg==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -5445,7 +5450,7 @@ packages:
       '@unocss/cli': 0.57.4
       '@unocss/core': 0.57.4
       '@unocss/extractor-arbitrary-variants': 0.57.4
-      '@unocss/postcss': 0.57.4(postcss@8.4.29)
+      '@unocss/postcss': 0.57.4(postcss@8.4.31)
       '@unocss/preset-attributify': 0.57.4
       '@unocss/preset-icons': 0.57.4
       '@unocss/preset-mini': 0.57.4
@@ -5806,15 +5811,6 @@ packages:
       '@vue/server-renderer': 3.3.8(vue@3.3.8)
       '@vue/shared': 3.3.8
       typescript: 5.2.2
-
-  /vuex@4.1.0(vue@3.3.8):
-    resolution: {integrity: sha512-hmV6UerDrPcgbSy9ORAtNXDr9M4wlNP4pEFKye4ujJF8oqgFFuxDCdOLS3eNoRTtq5O3hoBDh9Doj1bQMYHRbQ==}
-    peerDependencies:
-      vue: ^3.2.0
-    dependencies:
-      '@vue/devtools-api': 6.5.0
-      vue: 3.3.8(typescript@5.2.2)
-    dev: false
 
   /webidl-conversions@7.0.0:
     resolution: {integrity: sha512-VwddBukDzu71offAQR975unBIGqfKZpM+8ZX6ySk8nYhVoo5CYaZyzt3YBvYtRtO+aoGlqxPg/B87NGVZ/fu6g==}

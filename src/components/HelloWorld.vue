@@ -65,6 +65,9 @@ export default defineComponent({
     const data = reactive({
       number: 0,
     });
+    
+    const counterStore = useCounterStore();
+
     const count = computed(() => counterStore.count);
 
     function plus() {
