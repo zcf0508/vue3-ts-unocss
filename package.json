@@ -1,6 +1,7 @@
 {
   "name": "vue3-ts-unocss",
   "version": "0.0.4",
+  "type": "module",
   "packageManager": "pnpm@8.15.3",
   "scripts": {
     "dev": "vite",
@@ -8,8 +9,9 @@
     "serve": "vite preview",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx,vue ./src ./tests",
     "format": "eslint --fix --ext .js,.jsx,.ts,.tsx,vue ./src ./tests",
+    "test": "npx vitest --run && npm run test:e2e",
     "test:unit": "vitest",
-    "test:e2e": "vite && playwright test",
+    "test:e2e": "playwright test",
     "tsc": "vue-tsc --noEmit --skipLibCheck",
     "release": "bumpp"
   },
