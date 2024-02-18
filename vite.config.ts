@@ -76,9 +76,6 @@ export default defineConfig(({ command }) => {
       include: ['tests/unit/*.spec.ts'],
       globals: true,
       environment: 'happy-dom',
-      deps: {
-        inline: ['@vue', '@vueuse'],
-      },
     },
   };
 });
