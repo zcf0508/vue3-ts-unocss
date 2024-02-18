@@ -3,7 +3,7 @@
     "eslint.format.enable": true,
     "editor.formatOnSave": false,
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
+        "source.fixAll.eslint": "explicit"
     },
     "iconify.cdnEntry": "https://github.com/iconify/icon-sets/tree/master/json",
     "references.preferredLocation": "peek",

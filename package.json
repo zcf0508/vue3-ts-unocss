@@ -27,6 +27,7 @@
   "devDependencies": {
     "@iconify/json": "^2.2.142",
     "@playwright/test": "^1.39.0",
+    "@total-typescript/ts-reset": "^0.5.1",
     "@types/node": "^20.9.0",
     "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.11.0",
