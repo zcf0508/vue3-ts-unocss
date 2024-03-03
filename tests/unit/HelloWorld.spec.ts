@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { mount } from '@vue/test-utils';
 import { createPinia } from 'pinia';
 import HelloWorld from '@/components/HelloWorld.vue';
@@ -12,7 +10,7 @@ const wrapper = mount(HelloWorld, {
   },
 });
 
-describe('HelloWorld.vue', () => {
+describe('helloWorld.vue', () => {
   it('测试组件加载 props.msg ', () => {
     expect(wrapper.text()).toMatch(msg);
   });
@@ -24,7 +22,7 @@ describe('HelloWorld.vue', () => {
     await wrapper.findAll('button')[0].trigger('click');
 
     await wrapper.vm.$nextTick();
-    
+
     expect(store.count).toBe(2);
     expect(store.double).toBe(4);
   });
@@ -45,7 +43,7 @@ describe('HelloWorld.vue', () => {
     await wrapper.findAll('button')[1].trigger('click');
 
     await wrapper.vm.$nextTick();
-      
+
     expect(store.count).toBe(7); // 最终结果为 「 2 」 + 2 + 3 = 7
   });
 });

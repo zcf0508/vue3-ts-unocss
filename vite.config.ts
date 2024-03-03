@@ -1,8 +1,11 @@
-import * as path from 'path';
+import * as path from 'node:path';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+
 // import legacy from "@vitejs/plugin-legacy";
-import viteCompression from 'vite-plugin-compression'; //gzip
+import viteCompression from 'vite-plugin-compression';
+
+// gzip
 import { visualizer } from 'rollup-plugin-visualizer';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
@@ -12,7 +15,6 @@ import { CodeInspectorPlugin } from 'code-inspector-plugin';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
-
   return {
     define: {
       __VUE_OPTIONS_API__: false, // 不使用 Options Api 减小压缩体积
@@ -44,24 +46,27 @@ export default defineConfig(({ command }) => {
         resolvers: [],
       }),
       UnoCSS(),
-      ...(command === 'serve' ? [
-        visualizer(),
-        Inspect(),
-        CodeInspectorPlugin({
-          bundler: 'vite',
-          showSwitch: true,
-        }),
-      ]: [
-        viteCompression({
-          threshold: 102400, //超过10k进行压缩
-        }),
-      ]),
+      ...(command === 'serve'
+        ? [
+          visualizer(),
+          Inspect(),
+          CodeInspectorPlugin({
+            bundler: 'vite',
+            showSwitch: true,
+          }),
+        ]
+        : [
+          viteCompression({
+            threshold: 102400, // 超过10k进行压缩
+          }),
+        ]
+      ),
     ],
     build: {
       minify: 'terser',
       terserOptions: {
         compress: {
-          //生产环境时移除console
+          // 生产环境时移除console
           drop_console: true,
           drop_debugger: true,
         },

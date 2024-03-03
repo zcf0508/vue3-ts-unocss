@@ -1,3 +1,34 @@
+<script lang="ts">
+export default defineComponent({
+  name: 'HelloWorld',
+  props: {
+    msg: {
+      type: String,
+      required: true,
+    },
+  },
+  setup() {
+    const data = reactive({
+      number: 0,
+    });
+
+    const counterStore = useCounterStore();
+
+    const count = computed(() => counterStore.count);
+
+    function plus() {
+      counterStore.increment();
+    }
+
+    function add() {
+      counterStore.add(Number(data.number));
+    }
+
+    return { ...toRefs(data), count, plus, add };
+  },
+});
+</script>
+
 <template>
   <h1>{{ msg }}</h1>
 
@@ -25,13 +56,13 @@
   </button>
   <p class="my-2">
     <label for="number_input">
-      <input 
-        id="number_input" 
+      <input
+        id="number_input"
         v-model="number"
         w:p="l-2"
         w:border="~ gray-100"
-        w:appearance="none" 
-        w:outline="focus:none" 
+        w:appearance="none"
+        w:outline="focus:none"
         type="number"
       >
     </label>
@@ -51,37 +82,6 @@
     <code>components/HelloWorld.vue</code> to test hot module replacement.
   </p>
 </template>
-
-<script lang="ts">
-export default defineComponent({
-  name: 'HelloWorld',
-  props: {
-    msg: {
-      type: String,
-      required: true,
-    },
-  },
-  setup() {
-    const data = reactive({
-      number: 0,
-    });
-    
-    const counterStore = useCounterStore();
-
-    const count = computed(() => counterStore.count);
-
-    function plus() {
-      counterStore.increment();
-    }
-
-    function add() {
-      counterStore.add(Number(data.number));
-    }
-
-    return { ...toRefs(data), count, plus, add };
-  },
-});
-</script>
 
 <style scoped>
 a {

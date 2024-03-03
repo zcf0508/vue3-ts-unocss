@@ -8,7 +8,7 @@ const service = axios.create({
 service.interceptors.request.use(
   (config) => {
     if (config.headers) {
-      config.headers['Authorization'] = 'JWT '; //获取token，并将其添加至请求头中
+      config.headers.Authorization = 'JWT '; // 获取token，并将其添加至请求头中
     }
 
     return config;
@@ -20,7 +20,7 @@ service.interceptors.request.use(
 
 // 响应拦截器
 service.interceptors.response.use(
-  (response: AxiosResponse<{code: number, data: any}, unknown>) => {
+  (response: AxiosResponse<{ code: number, data: any }, unknown>) => {
     const status = response.status;
     const res = response.data;
 
@@ -31,8 +31,8 @@ service.interceptors.response.use(
     if (res.code > 0) {
       // 50008: Illegal token; 50012: Other clients logged in; 50014: Token expired;
       return Promise.reject(res);
-    } else {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    }
+    else {
       return res.data;
     }
   },

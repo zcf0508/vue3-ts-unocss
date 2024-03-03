@@ -1,12 +1,12 @@
-<template>
-  <router-view />
-</template>
-
 <script lang="ts">
 export default defineComponent({
   name: 'App',
 });
 </script>
+
+<template>
+  <router-view />
+</template>
 
 <style>
 :root {
