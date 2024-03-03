@@ -1,7 +1,17 @@
 import antfu from '@antfu/eslint-config';
+import pluginSecurity from 'eslint-plugin-security';
+import pluginVuejsi11y from 'eslint-plugin-vuejs-accessibility';
+import vueParse from 'vue-eslint-parser';
 
 export default antfu({
-  typescript: true,
+  typescript: {
+    parserOptions: {
+      project: './tsconfig.json',
+    },
+    overrides: {
+      'ts/no-unsafe-assignment': 'warn',
+    },
+  },
   vue: {
     rules: {
       'vue/multi-word-component-names': [0],
@@ -31,28 +41,41 @@ export default antfu({
       }],
     },
   },
-}, {
-  rules: {
-    'curly': ['error', 'all'],
-    'style/brace-style': 'error',
-    'style/multiline-ternary': ['error', 'always'],
-    'unused-imports/no-unused-imports': 'warn',
-    'unused-imports/no-unused-vars': [
-      'warn',
-      { args: 'after-used', argsIgnorePattern: '^_', vars: 'all', varsIgnorePattern: '^_' },
-    ],
-    'no-console': ['warn'],
-    'style/semi': ['error', 'always'],
-    'style/indent': ['error', 2, { SwitchCase: 1 }],
-    'max-len': [
-      'error',
-      {
-        code: 120,
-        tabWidth: 2,
-        ignoreRegExpLiterals: true,
-      },
-    ],
-    'comma-dangle': ['error', 'always-multiline'],
-    'style/quotes': ['error', 'single'],
+}, [
+  {
+    files: ['**/*.vue'],
+    languageOptions: {
+      parser: vueParse,
+    },
+    plugins: {
+      'vuejs-accessibility': pluginVuejsi11y,
+    },
+    rules: pluginVuejsi11y.configs.recommended.rules,
   },
-});
+  pluginSecurity.configs.recommended,
+  {
+    rules: {
+      'curly': ['error', 'all'],
+      'style/brace-style': 'error',
+      'style/multiline-ternary': ['error', 'always'],
+      'unused-imports/no-unused-imports': 'off',
+      'unused-imports/no-unused-vars': [
+        'warn',
+        { args: 'after-used', argsIgnorePattern: '^_', vars: 'all', varsIgnorePattern: '^_' },
+      ],
+      'no-console': ['warn'],
+      'style/semi': ['error', 'always'],
+      'style/indent': ['error', 2, { SwitchCase: 1 }],
+      'style/max-len': [
+        'error',
+        {
+          code: 120,
+          tabWidth: 2,
+          ignoreRegExpLiterals: true,
+        },
+      ],
+      'comma-dangle': ['error', 'always-multiline'],
+      'style/quotes': ['error', 'single'],
+    },
+  },
+]);

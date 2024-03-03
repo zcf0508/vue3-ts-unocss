@@ -51,9 +51,9 @@ export default defineComponent({
     <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
   </p>
 
-  <button type="button" @click="plus">
+  <div tabIndex="0" role="button" @keypress="plus">
     count is: {{ count }}
-  </button>
+  </div>
   <p class="my-2">
     <label for="number_input">
       <input
