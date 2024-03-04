@@ -4,16 +4,9 @@ import pluginVuejsi11y from 'eslint-plugin-vuejs-accessibility';
 import vueParse from 'vue-eslint-parser';
 
 export default antfu({
-  typescript: {
-    parserOptions: {
-      project: './tsconfig.json',
-    },
-    overrides: {
-      'ts/no-unsafe-assignment': 'warn',
-    },
-  },
+  typescript: true,
   vue: {
-    rules: {
+    overrides: {
       'vue/multi-word-component-names': [0],
       'vue/max-attributes-per-line': ['error', {
         singleline: {
@@ -42,6 +35,9 @@ export default antfu({
     },
   },
 }, [
+  {
+    ignores: ['public/**/*'],
+  },
   {
     files: ['**/*.vue'],
     languageOptions: {
