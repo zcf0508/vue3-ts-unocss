@@ -6,6 +6,7 @@
     "antfu.goto-alias",
     "bradlc.vscode-tailwindcss",
     "yoavbls.pretty-ts-errors",
-    "zcf0508.vue-hook-optimizer-ext"
+    "zcf0508.vue-hook-optimizer-ext",
+    "esbenp.prettier-vscode"
   ]
 }
