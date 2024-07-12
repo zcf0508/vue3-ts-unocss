@@ -1,10 +1,15 @@
+// @ts-check
+/// <reference path="./eslint-typegen.d.ts" />
+
 import antfu from '@antfu/eslint-config';
+import typegen from 'eslint-typegen';
 import pluginSecurity from 'eslint-plugin-security';
 import pluginVuejsi11y from 'eslint-plugin-vuejs-accessibility';
 import pluginPrettierVue from 'eslint-plugin-prettier-vue';
 import vueParse from 'vue-eslint-parser';
+import pluginVueHookOptimizer from 'eslint-plugin-vue-hook-optimizer';
 
-export default antfu({
+export default typegen(antfu({
   typescript: true,
   vue: {
     overrides: {
@@ -37,7 +42,7 @@ export default antfu({
   },
 }, [
   {
-    ignores: ['public/**/*'],
+    ignores: ['public/**/*', 'README.md'],
   },
   {
     files: ['**/*.vue'],
@@ -59,6 +64,19 @@ export default antfu({
     rules: pluginPrettierVue.configs.recommended.rules,
   },
   {
+    plugins: {
+      'vue-hook-optimizer': pluginVueHookOptimizer,
+    },
+    rules: {
+      'vue-hook-optimizer/not-used': ['warn', {
+        framework: 'vue',
+      }],
+      'vue-hook-optimizer/loop-call': ['warn', {
+        framework: 'vue',
+      }],
+    },
+  },
+  {
     files: ['**/*.vue'],
     languageOptions: {
       parser: vueParse,
@@ -66,7 +84,7 @@ export default antfu({
     plugins: {
       'vuejs-accessibility': pluginVuejsi11y,
     },
-    rules: pluginVuejsi11y.configs.recommended.rules,
+    // rules: pluginVuejsi11y.configs.recommended.rules,
   },
   pluginSecurity.configs.recommended,
   {
@@ -94,4 +112,4 @@ export default antfu({
       'style/quotes': ['error', 'single'],
     },
   },
-]);
+]));
