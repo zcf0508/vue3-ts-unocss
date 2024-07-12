@@ -3,9 +3,8 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 
 // import legacy from "@vitejs/plugin-legacy";
-import viteCompression from 'vite-plugin-compression';
-
 // gzip
+import viteCompression from 'vite-plugin-compression';
 import { visualizer } from 'rollup-plugin-visualizer';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
@@ -81,6 +80,11 @@ export default defineConfig(({ command }) => {
       include: ['tests/unit/*.spec.ts'],
       globals: true,
       environment: 'happy-dom',
+      coverage: {
+        include: ['src/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx,vue}'],
+        provider: 'istanbul',
+        reporter: ['text', 'html'],
+      },
     },
   };
 });
